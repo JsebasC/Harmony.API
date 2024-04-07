@@ -26,9 +26,9 @@ namespace msvHarmony.Domain.Services
 
         public async Task<AuthResponse> LoginAsync(AuthRequest request)
         {
-            var user = await _userManager.FindByEmailAsync(request.User);            
+            var user = await _userManager.FindByEmailAsync(request.Email);            
             if (user is null)
-                throw new Exception($"El usuario {request.User} no existe");
+                throw new Exception($"El usuario {request.Email} no existe");
 
             var resultado = await _signInManager.PasswordSignInAsync(user, request.Password, false, lockoutOnFailure: false);
             if (!resultado.Succeeded)
@@ -66,7 +66,7 @@ namespace msvHarmony.Domain.Services
             var resultado = await _userManager.CreateAsync(user, request.Password);
             if (resultado.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, "usuario_eco_comprometido");
+                await _userManager.AddToRoleAsync(user, "Usuario");
                 var token = await GenerateToken(user);
 
                 return new RegistrationResponse

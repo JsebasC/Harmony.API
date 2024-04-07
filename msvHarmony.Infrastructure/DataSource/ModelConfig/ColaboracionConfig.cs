@@ -8,7 +8,7 @@ namespace msvHarmony.Infrastructure.DataSource.ModelConfig
     {
         public void Configure(EntityTypeBuilder<Colaboracion> builder)
         {
-            builder.ToTable("Colaboracion");            
+            builder.ToTable("Colaboracion");
 
             builder.HasOne(d => d.Cancion).WithMany(p => p.Colaboracions)
                 .HasForeignKey(d => d.CancionId)
@@ -36,14 +36,14 @@ namespace msvHarmony.Infrastructure.DataSource.ModelConfig
                 new Colaboracion
                 {
                     Id = Guid.Parse("05775810-99c0-4c9f-9c64-67b62a757009"),
-                    CancionId = Guid.Parse("dbf159ea-55f1-44f5-a98e-36d45b62bc28"),                    
+                    CancionId = Guid.Parse("dbf159ea-55f1-44f5-a98e-36d45b62bc28"),
                     ArtistaId = Guid.Parse("00da8580-99e6-4e16-8a0b-d8739b4f98ff"),
                     CreatedOn = DateTime.Now,
                     LastModifiedOn = DateTime.Now
                 },
                 new Colaboracion
                 {
-                    Id = Guid.Parse("fba9d159-8866-4458-a1b3-5828af05fd40"),                    
+                    Id = Guid.Parse("fba9d159-8866-4458-a1b3-5828af05fd40"),
                     CancionId = Guid.Parse("34645ff8-7bd8-42d6-9749-1beae05ff7ad"),
                     ArtistaId = Guid.Parse("00da8580-99e6-4e16-8a0b-d8739b4f98ff"),
                     CreatedOn = DateTime.Now,
@@ -78,6 +78,22 @@ namespace msvHarmony.Infrastructure.DataSource.ModelConfig
                     Id = Guid.Parse("e25b2548-6d17-4f83-a58e-608278bc1801"),
                     CancionId = Guid.Parse("d7584f4f-5b7e-4102-886c-20a59cd22752"),
                     ArtistaId = Guid.Parse("00da8580-99e6-4e16-8a0b-d8739b4f98ff"),
+                    CreatedOn = DateTime.Now,
+                    LastModifiedOn = DateTime.Now
+                },
+                new Colaboracion
+                {
+                    Id = Guid.Parse("cfc16fef-a973-4748-b5ac-ca2cdfd2bf0b"),
+                    CancionId = Guid.Parse("59bcaa11-7849-41e1-8e50-beb241e1d612"),
+                    ArtistaId = Guid.Parse("00da8580-99e6-4e16-8a0b-d8739b4f98ff"),
+                    CreatedOn = DateTime.Now,
+                    LastModifiedOn = DateTime.Now
+                },
+                new Colaboracion
+                {
+                    Id = Guid.Parse("bae3e15f-dcd3-439a-bd36-332c4a6841cc"),
+                    CancionId = Guid.Parse("59bcaa11-7849-41e1-8e50-beb241e1d612"),
+                    ArtistaId = Guid.Parse("286f574b-b842-4930-86c1-b873350a0d98"),
                     CreatedOn = DateTime.Now,
                     LastModifiedOn = DateTime.Now
                 }
