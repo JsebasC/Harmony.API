@@ -12,6 +12,7 @@ public partial class Cancion : DomainEntity
     public string? Portada { get; set; }
 
     public Guid AlbumId { get; set; }
+    public string? Source { get; set; }
 
     public virtual Album Album { get; set; } = null!;
 

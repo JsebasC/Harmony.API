@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using msvHarmony.Infrastructure.DataSource;
 
@@ -11,9 +12,11 @@ using msvHarmony.Infrastructure.DataSource;
 namespace msvHarmony.Infrastructure.Migrations
 {
     [DbContext(typeof(HarmonyContext))]
-    partial class HarmonyContextModelSnapshot : ModelSnapshot
+    [Migration("20240412183320_SeModificaCancioness")]
+    partial class SeModificaCancioness
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

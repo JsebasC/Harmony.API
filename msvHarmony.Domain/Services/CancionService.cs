@@ -36,6 +36,7 @@ namespace msvHarmony.Domain.Services
                 Album = cancion.Album.Titulo,
                 Artista = ObtenerNombreArtistaColaborador(cancion, colaboraciones),
                 Duracion = SegundosAMinutos(cancion.Duracion),
+                Source = cancion.Source
             }).ToList();
 
             return cancionesDto;

@@ -9,6 +9,7 @@
         public string AlbumId { get; set; } = string.Empty;
         public string Album { get; set; } = string.Empty;
         public string Duracion { get; set; } = string.Empty;
+        public string Source { get; set; } = string.Empty;
 
     }
 }

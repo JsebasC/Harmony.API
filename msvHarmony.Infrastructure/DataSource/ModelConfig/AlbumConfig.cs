@@ -8,7 +8,7 @@ namespace msvHarmony.Infrastructure.DataSource.ModelConfig
     {
         public void Configure(EntityTypeBuilder<Album> builder)
         {
-            builder.ToTable("Album");            
+            builder.ToTable("Album");
 
             builder.Property(e => e.Titulo)
                 .HasMaxLength(200)
@@ -17,15 +17,15 @@ namespace msvHarmony.Infrastructure.DataSource.ModelConfig
             builder.Property(e => e.Anio).IsUnicode(false);
 
             builder.HasOne(d => d.Artista).WithMany(p => p.Albums)
-                .HasForeignKey(d => d.ArtistaId)                
+                .HasForeignKey(d => d.ArtistaId)
                 .HasConstraintName("FK_Album_Artista");
 
             builder.HasOne(d => d.Discografica).WithMany(p => p.Albums)
-                .HasForeignKey(d => d.DiscograficaId)                
+                .HasForeignKey(d => d.DiscograficaId)
                 .HasConstraintName("FK_Album_Discografica");
 
             builder.HasOne(d => d.Genero).WithMany(p => p.Albums)
-                .HasForeignKey(d => d.GeneroId)                
+                .HasForeignKey(d => d.GeneroId)
                 .HasConstraintName("FK_Album_Genero");
 
             builder.HasData(
@@ -37,6 +37,18 @@ namespace msvHarmony.Infrastructure.DataSource.ModelConfig
                     Portada = "Thriller.jpg",
                     GeneroId = Guid.Parse("8fed34da-dbe0-4ffb-b7e4-59b1546d446e"),
                     ArtistaId = Guid.Parse("b2d8a25a-01b3-454a-bb62-c829cff931b7"),
+                    DiscograficaId = Guid.Parse("7e49603a-44e5-48d3-990c-691008b0e88a"),
+                    CreatedOn = DateTime.Now,
+                    LastModifiedOn = DateTime.Now
+                },
+                new Album
+                {
+                    Id = Guid.Parse("2d45f863-ce4d-4671-a75f-78e978ccb7ca"),
+                    Titulo = "Exodus",
+                    Anio = 1977,
+                    Portada = "Exodus.jpg",
+                    GeneroId = Guid.Parse("0a2cee36-6643-43b3-b0a3-ae29aa36ebb6"),
+                    ArtistaId = Guid.Parse("c24fb9db-848c-4a9d-8ae0-44a97a38f0cb"),
                     DiscograficaId = Guid.Parse("7e49603a-44e5-48d3-990c-691008b0e88a"),
                     CreatedOn = DateTime.Now,
                     LastModifiedOn = DateTime.Now
