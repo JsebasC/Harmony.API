@@ -20,7 +20,7 @@ namespace msvHarmony.Application.Favorito.Command
 
             if(favoritosPorUsuario.Where(favorito => favorito.CancionId == Guid.Parse(request.CancionId)).Any())
             {
-                throw new CoreBusinessException("La cancion, ya existe en favoritos");
+                throw new CoreBusinessException("La cancion ya existe en favoritos");
             }
 
             var favorito = new Domain.Entities.Favorito()

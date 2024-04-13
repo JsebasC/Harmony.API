@@ -1,41 +1,40 @@
-﻿using msvHarmony.Application.Favorito.Dto;
-using msvHarmony.Domain.Dto;
+﻿using msvHarmony.Domain.Dto;
 using msvHarmony.Domain.Entities;
 using msvHarmony.Domain.Ports;
 
 namespace msvHarmony.Domain.Services
 {
     [DomainService]
-    public class FavoritoService
+    public class PlaylistService
     {
-        readonly IFavoritoRepository _favoritoRepository;
+        readonly IPlaylistDetalleRepository _playlistDetalleRepository;
         readonly CancionService _cancionService;
         private IEnumerable<Colaboracion> colaboraciones;
 
-        public FavoritoService(IFavoritoRepository favoritoRepository, CancionService cancionService)
+        public PlaylistService(IPlaylistDetalleRepository playlistDetalleRepository, CancionService cancionService)
         {
-            _favoritoRepository = favoritoRepository;
+            _playlistDetalleRepository = playlistDetalleRepository;
             _cancionService = cancionService;
         }
 
-        public async Task<List<FavoritoDto>> ListarPorUsuarioAsync(string usuarioId)
+        public async Task<List<PlaylistDetalleDto>> ListarPorPlaylistAsync(string playlistId)
         {
             await _cancionService.ListarArtistasAsync();
             colaboraciones = await _cancionService.ListarColaboracionesAsync();
-            IEnumerable<Favorito> favoritosPorUsuario = await _favoritoRepository.ListarPorUsuarioAsync(usuarioId);
+            IEnumerable<PlaylistDetalle> playlistDetalles = await _playlistDetalleRepository.ListarDetallePorPlaylistAsync(playlistId);
 
-            if (favoritosPorUsuario is null)
-                return new List<FavoritoDto>();
+            if (playlistDetalles is null)
+                return new List<PlaylistDetalleDto>();
 
-            var favoritoDto = favoritosPorUsuario.Select(favorito => new FavoritoDto
+            var playlistDetalleDto = playlistDetalles.Select(detalle => new PlaylistDetalleDto
             {
 
-                Id = favorito.Id.ToString(),
-                UsuarioId = favorito.UsuarioId,
-                Cancion = ObtenerCancion(favorito.Cancion)
+                Id = detalle.Id.ToString(),
+                PlaylistId = detalle.PlaylistId.ToString(),
+                Cancion = ObtenerCancion(detalle.Cancion)
             }).ToList();
 
-            return favoritoDto;
+            return playlistDetalleDto;
         }
 
         private CancionDto ObtenerCancion(Cancion cancion)
