@@ -1,10 +1,8 @@
 ﻿using MediatR;
-using msvHarmony.Domain.Dtos;
-using msvHarmony.Domain.Entities;
+using msvHarmony.Domain.Dto;
 using msvHarmony.Domain.Services;
-using msvHarmony.Infrastructure.Ports;
 
-namespace msvHarmony.Application.Album
+namespace msvHarmony.Application.Album.Query
 {
     public class AlbumQueryHandler : IRequestHandler<AlbumQuery, List<AlbumDto>>
     {
@@ -16,7 +14,7 @@ namespace msvHarmony.Application.Album
         }
 
         public async Task<List<AlbumDto>> Handle(AlbumQuery request, CancellationToken cancellationToken)
-        {                       
+        {
             return await _albumService.ListarAlbumnesAsync();
         }
     }

@@ -1,4 +1,4 @@
-﻿using msvHarmony.Domain.Dtos;
+﻿using msvHarmony.Domain.Dto;
 using msvHarmony.Domain.Entities;
 using msvHarmony.Domain.Ports;
 using msvHarmony.Infrastructure.Ports;
@@ -23,7 +23,7 @@ namespace msvHarmony.Domain.Services
 
         public async Task<List<CancionDto>> ListarCancionesAsync()
         {
-            artistas = await ListarArtistasAsync();
+            await ListarArtistasAsync();
             var colaboraciones = await ListarColaboracionesAsync();
             var canciones = await _cancionRepository.ListarAsync();
 
@@ -48,12 +48,12 @@ namespace msvHarmony.Domain.Services
             return await _colaboracionRepository.GetManyAsync(null, null, includeProperties);
         }
 
-        public async Task<IEnumerable<Artista>> ListarArtistasAsync()
+        public async Task ListarArtistasAsync()
         {
-            return await _artistaRepository.GetManyAsync();
+            artistas = await _artistaRepository.GetManyAsync();
         }
 
-        string ObtenerNombreArtistaColaborador(Cancion cancion, IEnumerable<Colaboracion> colaboraciones)
+        public string ObtenerNombreArtistaColaborador(Cancion cancion, IEnumerable<Colaboracion> colaboraciones)
         {
             var colaboracionesDeCancion = colaboraciones.Where(c => c.CancionId == cancion.Id).ToList();
             if (colaboracionesDeCancion.Any())
@@ -73,7 +73,7 @@ namespace msvHarmony.Domain.Services
             return string.Empty;
         }
 
-        static string SegundosAMinutos(int segundos)
+        public string SegundosAMinutos(int segundos)
         {
             int minutos = segundos / 60;
             int segundosRestantes = segundos % 60;

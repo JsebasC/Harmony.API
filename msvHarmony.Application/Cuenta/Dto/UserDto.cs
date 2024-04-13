@@ -1,4 +1,4 @@
-﻿namespace msvHarmony.Domain.Dtos
+﻿namespace msvHarmony.Application.Dto
 {
    public class UserDto
     {

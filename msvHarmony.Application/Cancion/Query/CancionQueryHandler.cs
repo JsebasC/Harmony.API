@@ -1,9 +1,6 @@
 ﻿using MediatR;
-using msvHarmony.Domain.Dtos;
-using msvHarmony.Domain.Entities;
-using msvHarmony.Domain.Ports;
+using msvHarmony.Domain.Dto;
 using msvHarmony.Domain.Services;
-using msvHarmony.Infrastructure.Ports;
 
 namespace msvHarmony.Application.Canciones.Query
 {

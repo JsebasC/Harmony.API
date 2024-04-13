@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using msvHarmony.Domain.Dtos;
+using msvHarmony.Application.Dto;
 
 namespace msvHarmony.Application.Account.Query
 {

@@ -1,8 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using msvHarmony.Application.Album;
-using msvHarmony.Application.Canciones.Query;
-using msvHarmony.Domain.Dtos;
+using msvHarmony.Application.Album.Query;
+using msvHarmony.Domain.Dto;
 
 namespace msvHarmony.Api.ApiHandlers
 {

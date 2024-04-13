@@ -1,4 +1,4 @@
-﻿namespace msvHarmony.Domain.Dtos
+﻿namespace msvHarmony.Domain.Dto
 {
     public class CancionDto
     {

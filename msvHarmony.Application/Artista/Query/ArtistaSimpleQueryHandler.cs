@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using msvHarmony.Domain.Dtos;
+using msvHarmony.Domain.Dto;
 using msvHarmony.Domain.Ports;
 
 namespace msvHarmony.Application.Artista.Query

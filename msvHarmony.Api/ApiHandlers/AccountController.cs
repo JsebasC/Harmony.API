@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using msvHarmony.Application.Account.Command;
 using msvHarmony.Application.Account.Query;
-using msvHarmony.Domain.Dtos;
+using msvHarmony.Application.Dto;
 
 namespace msvHarmony.Api.ApiHandlers
 {

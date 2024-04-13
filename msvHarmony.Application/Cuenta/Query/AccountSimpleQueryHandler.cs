@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using msvHarmony.Domain.Dtos;
+using msvHarmony.Application.Dto;
 using msvHarmony.Domain.Entities;
 using msvHarmony.Domain.Ports;
 

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using msvHarmony.Domain.Dtos;
+using msvHarmony.Domain.Dto;
 
-namespace msvHarmony.Application.Album
+namespace msvHarmony.Application.Album.Query
 {
     public record AlbumQuery() : IRequest<List<AlbumDto>>;
 }

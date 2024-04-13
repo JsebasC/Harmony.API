@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using msvHarmony.Domain.Dtos;
+using msvHarmony.Domain.Dto;
 
 namespace msvHarmony.Application.Canciones.Query
 {
