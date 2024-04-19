@@ -25,7 +25,7 @@ namespace msvHarmony.Api.ApiHandlers
         }
 
         [HttpPost("agregar")]
-        public async Task<ActionResult> AgregarAsync([FromForm] AgregarPlaylistCommand request)
+        public async Task<ActionResult> AgregarAsync([FromBody] AgregarPlaylistCommand request)
         {
             await _mediator.Send(request);
 
@@ -33,7 +33,7 @@ namespace msvHarmony.Api.ApiHandlers
         }
 
         [HttpPost("eliminar")]
-        public async Task<ActionResult> EliminarAsync([FromForm] EliminarPlaylistCommand request)
+        public async Task<ActionResult> EliminarAsync([FromBody] EliminarPlaylistCommand request)
         {
             await _mediator.Send(request);
 
@@ -47,7 +47,7 @@ namespace msvHarmony.Api.ApiHandlers
         }
 
         [HttpPost("agregar/detalle")]
-        public async Task<ActionResult> AgregarDetalleAsync([FromForm] AgregarDetallePlaylistCommand request)
+        public async Task<ActionResult> AgregarDetalleAsync([FromBody] AgregarDetallePlaylistCommand request)
         {
             await _mediator.Send(request);
 
@@ -55,7 +55,7 @@ namespace msvHarmony.Api.ApiHandlers
         }
 
         [HttpPost("eliminar/detalle")]
-        public async Task<ActionResult> EliminarDetalleAsync([FromForm] EliminarPlaylistDetalleCommand request)
+        public async Task<ActionResult> EliminarDetalleAsync([FromBody] EliminarPlaylistDetalleCommand request)
         {
             await _mediator.Send(request);
 

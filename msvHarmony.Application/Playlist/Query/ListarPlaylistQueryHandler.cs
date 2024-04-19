@@ -16,7 +16,7 @@ namespace msvHarmony.Application.Playlist.Query
         {
             var playList =  await _playlistRepository.ListarPorUsuarioAsync(request.UsuarioId);
 
-            return (List<Domain.Entities.Playlist>)(playList.ToList() ?? Enumerable.Empty<Domain.Entities.Playlist>());
+            return playList.ToList();
         }
     }
 }

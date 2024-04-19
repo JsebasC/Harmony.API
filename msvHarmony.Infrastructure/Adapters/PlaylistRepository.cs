@@ -26,18 +26,17 @@ namespace msvHarmony.Infrastructure.Adapters
 
         public async Task<Playlist?> ListarPorIdAsync(string playlistId)
         {
-            var includeProperties = "PlaylistDetalles";
+            var includeString = "PlaylistDetalles";
 
-            var listar =  await _dataSource.GetManyAsync(filter => filter.Id == Guid.Parse(playlistId), null, includeProperties);
+            var listar =  await _dataSource.GetManyAsync(filter => filter.Id == Guid.Parse(playlistId), null, includeString);
 
             return listar.FirstOrDefault();
         }
 
         public async Task<IEnumerable<Playlist>> ListarPorUsuarioAsync(string usuarioId)
         {
-            var includeProperties = "PlaylistDetalles";
-
-            return await _dataSource.GetManyAsync(filter => filter.UsuarioId == usuarioId, null, includeProperties);
+            
+            return await _dataSource.GetManyAsync(filter => filter.UsuarioId == usuarioId, null);
         }
     }
 }

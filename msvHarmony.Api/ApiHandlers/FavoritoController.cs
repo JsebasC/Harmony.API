@@ -23,7 +23,7 @@ namespace msvHarmony.Api.ApiHandlers
         }
 
         [HttpPost("agregar")]
-        public async Task<ActionResult> AgregarAsync([FromForm] AgregarFavoritoCommand request)
+        public async Task<ActionResult> AgregarAsync([FromBody] AgregarFavoritoCommand request)
         {
             await _mediator.Send(request);
 
@@ -31,7 +31,7 @@ namespace msvHarmony.Api.ApiHandlers
         }
 
         [HttpPost("eliminar")]
-        public async Task<ActionResult> EliminarAsync([FromForm] EliminarFavoritoCommand request)
+        public async Task<ActionResult> EliminarAsync([FromBody] EliminarFavoritoCommand request)
         {
             await _mediator.Send(request);
 

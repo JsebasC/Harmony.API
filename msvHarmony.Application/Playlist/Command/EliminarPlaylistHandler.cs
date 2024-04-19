@@ -23,14 +23,8 @@ namespace msvHarmony.Application.Playlist.Command
             {
                 throw new CoreBusinessException("Elimina primero las canciones asociadas a la playlist");
             }
-
-            var playlist = new Domain.Entities.Playlist()
-            {
-                Id = Guid.Parse(request.Id),
-                UsuarioId = request.UsuarioId
-            };
-
-            _playlistRepository.EliminarAsync(playlist);
+         
+            _playlistRepository.EliminarAsync(playlistPorId);
             await _unitOfWork.SaveAsync();
         }
     }
