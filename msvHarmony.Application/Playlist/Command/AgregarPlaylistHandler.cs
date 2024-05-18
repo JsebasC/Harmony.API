@@ -17,8 +17,8 @@ namespace msvHarmony.Application.Playlist.Command
 
         protected override async Task Handle(AgregarPlaylistCommand request, CancellationToken cancellationToken)
         {
-            var playlistRepetida = await _playlistRepository.ListarPorUsuarioAsync(request.UsuarioId);
-            if (playlistRepetida.Any())
+            var playlistPorUsuario = await _playlistRepository.ListarPorUsuarioAsync(request.UsuarioId);
+            if (playlistPorUsuario.Any(playlist => playlist.Nombre == request.Nombre))
             {
                 throw new CoreBusinessException("Ya existe una playlist con ese nombre");
             }
